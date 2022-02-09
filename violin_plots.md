@@ -97,10 +97,38 @@ ggsave('RELA_subunit.png', width=8, height=8, units="in", dpi=300)
 
 
 ```R
+#save everything as single plot
 
+p1=ggviolin(data, x="Group", y="RELA", fill = "Group", xlab="", ylab= "RELA", palette = c("blue", "red", "green"),
+        add = c("boxplot", "jitter"), add.params = list(fill = "white"))+ stat_compare_means(comparisons = my_comparisons, method='t.test')
+
+p2=ggviolin(data, x="Group", y="RELB", fill = "Group", xlab="", ylab= "RELB", palette = c("blue", "red", "green"),
+        add = c("boxplot", "jitter"), add.params = list(fill = "white"))+ stat_compare_means(comparisons = my_comparisons, method='t.test')
+
+p3=ggviolin(data, x="Group", y="REL", fill = "Group", xlab="", ylab= "REL", palette = c("blue", "red", "green"),
+        add = c("boxplot", "jitter"), add.params = list(fill = "white"))+ stat_compare_means(comparisons = my_comparisons, method='t.test')
+
+p4=ggviolin(data, x="Group", y="NFKB1", fill = "Group", xlab="", ylab= "NFKB1", palette = c("blue", "red", "green"),
+        add = c("boxplot", "jitter"), add.params = list(fill = "white"))+ stat_compare_means(comparisons = my_comparisons, method='t.test')
+
+p5=ggviolin(data, x="Group", y="NFKB2", fill = "Group", xlab="", ylab= "NFKB2", palette = c("blue", "red", "green"),
+        add = c("boxplot", "jitter"), add.params = list(fill = "white"))+ stat_compare_means(comparisons = my_comparisons, method='t.test')
+
+p6=ggviolin(data, x="Group", y="IRAK1", fill = "Group", xlab="", ylab= "IRAK1", palette = c("blue", "red", "green"),
+        add = c("boxplot", "jitter"), add.params = list(fill = "white"))+ stat_compare_means(comparisons = my_comparisons, method='t.test')
+
+ggarrange(p1, p2, p3, p4, p5, p6, common.legend = TRUE, legend = "bottom")
+ggsave('NFKB_SUBUNIT.png', width=12, height=12, units="in", dpi=300)
 ```
+
+
+    
+![png](output_6_0.png)
+    
+
 
 
 ```R
 
 ```
+
